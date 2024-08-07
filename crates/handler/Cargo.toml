@@ -1,5 +1,5 @@
 [package]
-name = "admin-testing"
+name = "handler"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -12,6 +12,11 @@ homepage.workspace = true
 repository.workspace = true
 
 [dependencies]
+utoipa-swagger-ui.workspace = true
+utoipa.workspace = true
+
+axum.workspace = true
+serde.workspace = true
 
 [lints]
 workspace = true

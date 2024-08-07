@@ -9,7 +9,10 @@ seaql-entity:
     	-u ${database_url} \
 		--with-serde both \
 		--lib \
-    	-o crates-entity/src
+    	-o crates/entity/src
 
 local:
-	@env APP_DEPLOY_MODE=local APP_APP.PORT=9999 cargo run -p admin-app
+	@env APP_DEPLOY_MODE=local cargo run -p app
+
+.PHONY: 
+	local

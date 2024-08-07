@@ -1,5 +1,5 @@
 [package]
-name = "utils"
+name = "app"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -11,8 +11,20 @@ readme.workspace = true
 homepage.workspace = true
 repository.workspace = true
 
+# [[bin]]
+# name = "admin"
+# path = "src/main.rs"
+
 [dependencies]
-strum.workspace = true
+tokio.workspace = true
+axum.workspace = true
+utoipa-swagger-ui.workspace = true
+utoipa.workspace = true
+
+anyhow.workspace = true
+
+configuration = {path = "../crates/configuration"}
+handler = {path = "../crates/handler"}
 
 [lints]
 workspace = true

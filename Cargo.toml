@@ -1,13 +1,17 @@
 [workspace]
 resolver = "2"
 members = [
-    "admin-app", 
-    "admin-testing", "crates/entity", "crates/types", "crates/utils",
+    "app", 
+    "testing", 
+    "crates/entity", 
+    "crates/types", 
+    "crates/utils", 
+    "crates/handler", "crates/configuration",
 ]
 
 default-members = [
-    "admin-app", 
-    "admin-testing",
+    "app", 
+    "testing",
 ]
 
 [workspace.package]
@@ -25,6 +29,49 @@ homepage = "https://github.com/thinkgos/admin-rs"
 repository = "https://github.com/thinkgos/admin-rs"
 
 [workspace.dependencies]
+# async
+tokio = { version = "1", features = ["full"] }
+futures-util = "0.3"
+
+# web 
+axum = {version = "0.7"}
+jsonwebtoken = "9"
+
+# utilities
+rand = "0.8"
+bytes = "1"
+config = "0.14"
+secrecy = {version = "0.8", features = ["serde"]}
+strum = {version = "0.26", features = ["derive"]}
+
+# error 
+anyhow = "1"
+thiserror = "1"
+
+# serialization
+serde = { version = "1", features = ["derive"] }
+
+# tracing
+tracing = {version = "0.1", features = ["log"]}
+tracing-subscriber = { version = "0.3", features = ["registry", "env-filter"] }
+tracing-bunyan-formatter = "0.3"
+tracing-log = "0.2"
+tracing-actix-web = "0.7"
+
+# orm
+sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
+sea-query = "0.31"
+
+# swagger
+utoipa = { version = "4", features = ["axum_extras", "chrono"] }
+utoipa-swagger-ui = { version = "7", features = ["axum"] }
+
+# crypto
+bcrypt = "0.15"
+cipher = "0.4"
+aes = "0.8"
+cbc = "0.1"
+base64 = "0.22"
 
 [workspace.lints.rust]
 unsafe_code = "forbid"

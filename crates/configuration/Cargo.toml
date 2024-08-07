@@ -1,5 +1,5 @@
 [package]
-name = "admin-app"
+name = "configuration"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
@@ -11,11 +11,13 @@ readme.workspace = true
 homepage.workspace = true
 repository.workspace = true
 
-# [[bin]]
-# name = "admin"
-# path = "src/main.rs"
-
 [dependencies]
+serde.workspace = true
+secrecy.workspace = true
+anyhow.workspace = true
+config.workspace = true
+
+utils = {path = "../utils"}
 
 [lints]
 workspace = true
