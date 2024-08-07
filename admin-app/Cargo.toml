@@ -1,0 +1,21 @@
+[package]
+name = "admin-app"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+description.workspace = true
+keywords.workspace = true
+license.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+
+# [[bin]]
+# name = "admin"
+# path = "src/main.rs"
+
+[dependencies]
+
+[lints]
+workspace = true

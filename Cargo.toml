@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "admin-app", 
+    "admin-testing", "crates/entity", "crates/types", "crates/utils",
+]
+
+default-members = [
+    "admin-app", 
+    "admin-testing",
+]
+
+[workspace.package]
+version = "0.1.0-rc0"
+authors = ["thinkgo <thinkgo@aliyun.com>"]
+edition = "2021"
+rust-version = "1.80.0"
+description = "an admin backend."
+keywords =[
+    "backend"
+]
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+homepage = "https://github.com/thinkgos/admin-rs"
+repository = "https://github.com/thinkgos/admin-rs"
+
+[workspace.dependencies]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+# unused = "allow" # for experimental dev
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
