@@ -1,5 +1,9 @@
-use axum::{response::IntoResponse, Json};
+use axum::{extract::Query, response::IntoResponse, routing, Json, Router};
 use serde::{Deserialize, Serialize};
+
+pub fn config_router() -> Router {
+    Router::new().route("/public/healthy", routing::get(healthy))
+}
 
 #[derive(Debug, Serialize, Deserialize, utoipa::ToSchema)]
 struct HealthyResponse {

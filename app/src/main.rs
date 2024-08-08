@@ -1,4 +1,4 @@
-use axum::{routing, Router};
+use axum::Router;
 use utoipa::OpenApi;
 use utoipa_swagger_ui::SwaggerUi;
 
@@ -10,11 +10,10 @@ async fn main() -> Result<(), anyhow::Error> {
     let c = Configuration::load()?;
 
     let app = Router::new()
-        .merge(SwaggerUi::new("/swagger-ui").url("/api-docs/openapi.json", ApiDoc::openapi()))
-        .route("/v1/public/healthy", routing::get(misc::healthy));
+        .merge(SwaggerUi::new("/swagger/index.html").url("/swagger/doc.json", ApiDoc::openapi()))
+        .nest("/api/v1", Router::new().merge(misc::config_router()));
 
     let listener = tokio::net::TcpListener::bind(c.app.addr()).await?;
     axum::serve(listener, app).await?;
-
     Ok(())
 }
