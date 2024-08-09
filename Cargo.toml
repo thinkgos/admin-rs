@@ -6,7 +6,8 @@ members = [
     "crates/entity", 
     "crates/types", 
     "crates/utils", 
-    "crates/handler", "crates/configuration",
+    "crates/handler", 
+    "crates/configuration",
 ]
 
 default-members = [
@@ -63,8 +64,8 @@ sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "ma
 sea-query = "0.31"
 
 # swagger
-utoipa = { version = "4", features = ["axum_extras", "chrono"] }
-utoipa-swagger-ui = { version = "7", features = ["axum"] }
+utoipa = { version = "5.0.0-alpha.1", features = ["axum_extras", "chrono"] }
+utoipa-swagger-ui = { version = "7.1.1-alpha.0", features = ["axum"] }
 
 # crypto
 bcrypt = "0.15"

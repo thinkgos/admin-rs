@@ -1,8 +1,15 @@
-use axum::{extract::Query, response::IntoResponse, routing, Json, Router};
+use axum::{response::IntoResponse, routing, Json, Router};
 use serde::{Deserialize, Serialize};
 
-pub fn config_router() -> Router {
-    Router::new().route("/public/healthy", routing::get(healthy))
+#[derive(utoipa::OpenApi)]
+#[openapi(paths(healthy), components(schemas(HealthyResponse)))]
+pub(crate) struct MiscApi;
+
+pub fn config_router_v1() -> Router {
+    Router::new().nest(
+        "/v1",
+        Router::new().route("/public/healthy", routing::get(healthy)),
+    )
 }
 
 #[derive(Debug, Serialize, Deserialize, utoipa::ToSchema)]
