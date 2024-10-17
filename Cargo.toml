@@ -61,7 +61,7 @@ tracing-actix-web = "0.7"
 
 # orm
 sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "macros"]}
-sea-query = "0.31"
+sea-query = "0.32"
 
 # swagger
 utoipa = { version = "5.0.0-alpha.1", features = ["axum_extras", "chrono"] }
