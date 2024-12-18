@@ -41,7 +41,7 @@ jsonwebtoken = "9"
 # utilities
 rand = "0.8"
 bytes = "1"
-config = "0.14"
+config = "0.15"
 secrecy = {version = "0.10", features = ["serde"]}
 strum = {version = "0.26", features = ["derive"]}
 
