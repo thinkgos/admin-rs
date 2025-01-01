@@ -35,7 +35,7 @@ tokio = { version = "1", features = ["full"] }
 futures-util = "0.3"
 
 # web 
-axum = {version = "0.7"}
+axum = {version = "0.8"}
 jsonwebtoken = "9"
 
 # utilities
