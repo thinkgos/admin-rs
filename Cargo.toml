@@ -65,7 +65,7 @@ sea-query = "0.32"
 
 # swagger
 utoipa = { version = "5.0.0-alpha.1", features = ["axum_extras", "chrono"] }
-utoipa-swagger-ui = { version = "8.0.0", features = ["axum"] }
+utoipa-swagger-ui = { version = "9.0.0", features = ["axum"] }
 
 # crypto
 bcrypt = "0.15"
