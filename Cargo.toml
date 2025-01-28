@@ -39,7 +39,7 @@ axum = {version = "0.7"}
 jsonwebtoken = "9"
 
 # utilities
-rand = "0.8"
+rand = "0.9"
 bytes = "1"
 config = "0.14"
 secrecy = {version = "0.10", features = ["serde"]}
