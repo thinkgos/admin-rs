@@ -5,7 +5,7 @@ members = [
     "testing", 
     "crates/entity", 
     "crates/types", 
-    "crates/utils", 
+    "crates/core", 
     "crates/handler", 
     "crates/configuration",
 ]
@@ -40,7 +40,7 @@ jsonwebtoken = "9"
 
 # utilities
 rand = "0.9"
-bytes = "1"
+bytes = "1.10"
 config = "0.15"
 secrecy = {version = "0.10", features = ["serde"]}
 strum = {version = "0.27", features = ["derive"]}
@@ -53,6 +53,7 @@ thiserror = "2"
 serde = { version = "1", features = ["derive"] }
 
 # tracing
+log = "0.4"
 tracing = {version = "0.1", features = ["log"]}
 tracing-subscriber = { version = "0.3", features = ["registry", "env-filter"] }
 tracing-bunyan-formatter = "0.3"

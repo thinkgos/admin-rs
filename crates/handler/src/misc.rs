@@ -22,7 +22,7 @@ struct HealthyResponse {
 #[utoipa::path(
     tag = "开放接口",
     get,
-    context_path = "/v1",
+    context_path = "v1",
     path = "/public/healthy",
     responses(
         (status = StatusCode::OK, body = inline(HealthyResponse))

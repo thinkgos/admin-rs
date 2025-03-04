@@ -1,4 +1,4 @@
-FROM rust:1.74.1 as builder 
+FROM rust:1.85.0 as builder 
 WORKDIR /app
 
 # 更新阿里云的bullseye版本包源
@@ -41,10 +41,10 @@ RUN apt update -y && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /app/target/release/etching etching
+COPY --from=builder /app/target/release/app app
 COPY conf conf
 
-ENV APP_DEPLOY prod
+ENV APP_DEPLOY_MODE prod
 
 # When `docker run` is executed, launch the binary!
-ENTRYPOINT ["./etching"]
+ENTRYPOINT ["./app"]

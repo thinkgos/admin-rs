@@ -1,5 +1,5 @@
 [package]
-name = "utils"
+name = "core"
 version.workspace = true
 authors.workspace = true
 edition.workspace = true

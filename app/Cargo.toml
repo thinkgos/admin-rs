@@ -16,15 +16,23 @@ repository.workspace = true
 # path = "src/main.rs"
 
 [dependencies]
+configuration = {path = "../crates/configuration"}
+handler = {path = "../crates/handler"}
+
 tokio.workspace = true
 axum.workspace = true
+anyhow.workspace = true
+
+# openapi
 utoipa-swagger-ui.workspace = true
 utoipa.workspace = true
 
-anyhow.workspace = true
-
-configuration = {path = "../crates/configuration"}
-handler = {path = "../crates/handler"}
+# tracing
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-bunyan-formatter.workspace = true
+tracing-log.workspace = true
+tracing-actix-web.workspace = true
 
 [lints]
 workspace = true

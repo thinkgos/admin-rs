@@ -8,7 +8,7 @@ use config::{Config, Environment, File};
 use serde::Deserialize;
 use std::env;
 
-use utils::deploy::Deploy;
+use core::deploy::Deploy;
 
 /// 配置
 #[derive(Debug, Deserialize)]
@@ -41,8 +41,8 @@ impl Configuration {
             .build()?
             .try_deserialize()?;
 
-        // tracing::info!("{:?}", settings);
-        println!("{:?}", c);
+        // tracing::info!("{:?}", c);
+        log::debug!("{:?}", c);
         Ok(c)
     }
 }

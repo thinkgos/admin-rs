@@ -12,12 +12,13 @@ homepage.workspace = true
 repository.workspace = true
 
 [dependencies]
+core = {path = "../core"}
+
 serde.workspace = true
 secrecy.workspace = true
 anyhow.workspace = true
 config.workspace = true
-
-utils = {path = "../utils"}
+log.workspace = true
 
 [lints]
 workspace = true

@@ -16,9 +16,8 @@ pub enum Deploy {
 
 #[cfg(test)]
 mod tests {
-    use strum::{EnumCount, VariantNames};
-
     use super::Deploy;
+    use strum::{EnumCount, VariantNames};
 
     #[test]
     fn test_deploy_display() {
