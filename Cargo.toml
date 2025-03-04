@@ -18,8 +18,8 @@ default-members = [
 [workspace.package]
 version = "0.1.0-rc0"
 authors = ["thinkgo <thinkgo@aliyun.com>"]
-edition = "2021"
-rust-version = "1.80.0"
+edition = "2024"
+rust-version = "1.85.0"
 description = "an admin backend."
 keywords =[
     "backend"
@@ -35,19 +35,19 @@ tokio = { version = "1", features = ["full"] }
 futures-util = "0.3"
 
 # web 
-axum = {version = "0.7"}
+axum = {version = "0.8"}
 jsonwebtoken = "9"
 
 # utilities
-rand = "0.8"
+rand = "0.9"
 bytes = "1"
-config = "0.14"
+config = "0.15"
 secrecy = {version = "0.10", features = ["serde"]}
-strum = {version = "0.26", features = ["derive"]}
+strum = {version = "0.27", features = ["derive"]}
 
 # error 
 anyhow = "1"
-thiserror = "1"
+thiserror = "2"
 
 # serialization
 serde = { version = "1", features = ["derive"] }
@@ -64,11 +64,11 @@ sea-orm = {version = "1", features = [ "sqlx-mysql", "runtime-tokio-rustls", "ma
 sea-query = "0.32"
 
 # swagger
-utoipa = { version = "5.0.0-alpha.1", features = ["axum_extras", "chrono"] }
-utoipa-swagger-ui = { version = "8.0.0", features = ["axum"] }
+utoipa = { version = "5.3", features = ["axum_extras", "chrono"] }
+utoipa-swagger-ui = { version = "9.0", features = ["axum"] }
 
 # crypto
-bcrypt = "0.15"
+bcrypt = "0.17"
 cipher = "0.4"
 aes = "0.8"
 cbc = "0.1"

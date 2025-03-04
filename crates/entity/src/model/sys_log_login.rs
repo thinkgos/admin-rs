@@ -6,16 +6,21 @@ use serde::{Deserialize, Serialize};
 #[derive(
     Clone, Debug, PartialEq, DeriveEntityModel, Eq, Serialize, Deserialize, utoipa :: ToSchema,
 )]
-#[sea_orm(table_name = "guide")]
+#[sea_orm(table_name = "sys_log_login")]
 pub struct Model {
     #[sea_orm(primary_key)]
     pub id: i64,
-    pub title: String,
-    pub content: String,
-    pub visible: String,
+    pub user_id: i64,
+    pub username: String,
+    pub r#type: i64,
+    pub os: String,
+    pub platform: String,
+    pub browser: String,
+    pub user_agent: String,
+    pub remark: String,
+    pub login_at: DateTime,
     pub created_at: DateTime,
     pub updated_at: DateTime,
-    pub deleted_at: i64,
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
