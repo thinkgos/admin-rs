@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
-use axum::http::{StatusCode, header::ContentType};
-use axum::{HttpResponse, error};
+use axum::http::StatusCode;
+use axum::response::{IntoResponse, Json, Response};
 use sea_orm::DbErr;
 use serde::Serialize;
 use thiserror::Error;
 
 #[derive(Debug, Serialize)]
-struct Response {
+struct Reply {
     code: usize,
     message: String,
     detail: String,
@@ -50,24 +50,21 @@ pub enum Error {
     PasswordOverQuota,
 }
 
-impl error::ResponseError for Error {
-    fn status_code(&self) -> StatusCode {
-        match self {
+impl IntoResponse for Error {
+    fn into_response(self) -> Response {
+        let status_code = match self {
             Error::ValidationError => StatusCode::BAD_REQUEST,
             Error::Unauthorized => StatusCode::UNAUTHORIZED,
             Error::PermissionForbidden => StatusCode::FORBIDDEN,
             Error::AnyhowError(_) => StatusCode::BAD_GATEWAY,
-            _ => StatusCode::from_u16(599).unwrap_or(StatusCode::INTERNAL_SERVER_ERROR),
-        }
-    }
-    fn error_response(&self) -> HttpResponse {
-        HttpResponse::build(self.status_code())
-            .insert_header(ContentType::json())
-            .json(Response {
-                code: 999999999,
-                message: self.to_string(),
-                detail: self.to_string(),
-                metadata: None,
-            })
+            _ => StatusCode::OK,
+        };
+        let body = Json(Reply {
+            code: status_code.as_u16().into(),
+            message: self.to_string(),
+            detail: self.to_string(),
+            metadata: None,
+        });
+        (status_code, body).into_response()
     }
 }

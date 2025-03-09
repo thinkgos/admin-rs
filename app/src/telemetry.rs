@@ -1,7 +1,7 @@
-use tracing::{subscriber, Subscriber};
+use tracing::{Subscriber, subscriber};
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 use tracing_log::LogTracer;
-use tracing_subscriber::{fmt::MakeWriter, layer::SubscriberExt, EnvFilter, Registry};
+use tracing_subscriber::{EnvFilter, Registry, fmt::MakeWriter, layer::SubscriberExt};
 
 pub fn get_subscriber<Sink>(
     name: &str,

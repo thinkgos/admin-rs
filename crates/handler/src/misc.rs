@@ -1,4 +1,8 @@
-use axum::{Json, Router, response::IntoResponse, routing};
+use axum::{
+    Router,
+    response::{IntoResponse, Json},
+    routing,
+};
 use serde::{Deserialize, Serialize};
 
 #[derive(utoipa::OpenApi)]

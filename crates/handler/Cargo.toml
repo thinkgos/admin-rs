@@ -12,6 +12,8 @@ homepage.workspace = true
 repository.workspace = true
 
 [dependencies]
+types = {path = "../types"}
+
 utoipa-swagger-ui.workspace = true
 utoipa.workspace = true
 
